@@ -1,0 +1,28 @@
+[project]
+name = "cnpj-due-diligence-agent"
+version = "0.1.0"
+description = "AI agent that runs due diligence on Brazilian companies (CNPJ) using public government data."
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=1.9",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.4",
+    "sse-starlette>=2.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "respx>=0.21", "ruff>=0.6"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
